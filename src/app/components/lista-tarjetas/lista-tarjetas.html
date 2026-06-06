@@ -1,0 +1,32 @@
+<div class="header">
+  <h1 class="titulo">Tarjetas de Video</h1>
+  <button class="btn-nueva" (click)="nueva()">+ Nueva tarjeta</button>
+</div>
+
+<div class="filtros">
+  <button class="filtro" [class.activo]="filtroMarca() === 'todas'" (click)="setFiltro('todas')">Todas</button>
+  <button class="filtro nvidia" [class.activo]="filtroMarca() === 'NVIDIA'" (click)="setFiltro('NVIDIA')">NVIDIA</button>
+  <button class="filtro amd" [class.activo]="filtroMarca() === 'AMD'" (click)="setFiltro('AMD')">AMD</button>
+</div>
+
+<div class="grid">
+  @for (tarjeta of tarjetasFiltradas; track tarjeta.id) {
+    <div class="card">
+      <div class="card-header">
+        <span [class]="'chip ' + claseMarca(tarjeta.marca)">{{ tarjeta.marca }}</span>
+      </div>
+      <h2 class="card-nombre">{{ tarjeta.nombre }}</h2>
+      <p class="card-descripcion">{{ tarjeta.descripcion }}</p>
+      <div class="card-specs">
+        <span>{{ tarjeta.vram }} GB {{ tarjeta.tipoMemoria }}</span>
+        <span>Stock: {{ tarjeta.stock }}</span>
+      </div>
+      <p class="card-precio">{{ tarjeta.precio | currency:'CLP':'symbol-narrow':'1.0-0' }}</p>
+      <div class="card-acciones">
+        <button class="btn-detalle" (click)="verDetalle(tarjeta.id)">Ver más</button>
+        <button class="btn-editar" (click)="editar(tarjeta.id)">Editar</button>
+        <button class="btn-eliminar" (click)="eliminar(tarjeta.id)">Eliminar</button>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,132 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+.btn-nueva {
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-nueva:hover { background: #6d28d9; }
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.filtro {
+  background: #1e1e2e;
+  color: #9ca3af;
+  border: 1px solid #2d2d3f;
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtro.activo, .filtro:hover { color: #f1f1f1; border-color: #7c3aed; }
+.filtro.nvidia.activo { border-color: #76b900; color: #76b900; }
+.filtro.amd.activo { border-color: #ed1c24; color: #ed1c24; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a2e;
+  border: 1px solid #2d2d3f;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.card:hover { border-color: #7c3aed; }
+
+.card-header { display: flex; }
+
+.chip {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.chip-nvidia { background: #76b90020; color: #76b900; border: 1px solid #76b900; }
+.chip-amd { background: #ed1c2420; color: #ed1c24; border: 1px solid #ed1c24; }
+
+.card-nombre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+.card-descripcion {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.card-specs {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.card-precio {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin: 0;
+}
+
+.card-acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.card-acciones button {
+  flex: 1;
+  padding: 7px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card-acciones button:hover { opacity: 0.85; }
+
+.btn-detalle { background: #2d2d3f; color: #f1f1f1; }
+.btn-editar { background: #1e3a5f; color: #60a5fa; }
+.btn-eliminar { background: #3b1f1f; color: #f87171; }

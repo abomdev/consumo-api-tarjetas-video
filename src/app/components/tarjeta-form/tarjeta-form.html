@@ -1,0 +1,62 @@
+<div class="form-container">
+  <h1 class="titulo">{{ esEdicion() ? 'Editar tarjeta' : 'Nueva tarjeta' }}</h1>
+
+  <form (ngSubmit)="guardar()">
+    <div class="campo">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="tarjeta.nombre" name="nombre" required placeholder="ej: RTX 4090" />
+    </div>
+
+    <div class="fila">
+      <div class="campo">
+        <label>Marca</label>
+        <select [(ngModel)]="tarjeta.marca" name="marca">
+          @for (m of marcas; track m) {
+            <option [value]="m">{{ m }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Tipo de Memoria</label>
+        <select [(ngModel)]="tarjeta.tipoMemoria" name="tipoMemoria">
+          @for (t of tiposMemoria; track t) {
+            <option [value]="t">{{ t }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="fila">
+      <div class="campo">
+        <label>VRAM (GB)</label>
+        <input type="number" [(ngModel)]="tarjeta.vram" name="vram" min="1" required />
+      </div>
+
+      <div class="campo">
+        <label>Stock</label>
+        <input type="number" [(ngModel)]="tarjeta.stock" name="stock" min="0" required />
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Precio (CLP)</label>
+      <input type="number" [(ngModel)]="tarjeta.precio" name="precio" min="0" required />
+    </div>
+
+    <div class="campo">
+      <label>Descripción</label>
+      <textarea [(ngModel)]="tarjeta.descripcion" name="descripcion" rows="3" required></textarea>
+    </div>
+
+    <div class="campo">
+      <label>Imagen (nombre del archivo .webp)</label>
+      <input type="text" [(ngModel)]="tarjeta.imagen" name="imagen" placeholder="ej: rtx4090.webp" />
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+      <button type="submit" class="btn-guardar">{{ esEdicion() ? 'Guardar cambios' : 'Crear tarjeta' }}</button>
+    </div>
+  </form>
+</div>

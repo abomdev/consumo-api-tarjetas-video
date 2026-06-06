@@ -1,0 +1,35 @@
+@if (tarjeta(); as t) {
+  <div class="detalle">
+    <button class="btn-volver" (click)="volver()">← Volver</button>
+
+    <div class="card">
+      <div class="card-header">
+        <span [class]="'chip ' + claseMarca(t.marca)">{{ t.marca }}</span>
+        <h1 class="nombre">{{ t.nombre }}</h1>
+      </div>
+
+      <p class="descripcion">{{ t.descripcion }}</p>
+
+      <div class="specs">
+        <div class="spec">
+          <span class="spec-label">VRAM</span>
+          <span class="spec-valor">{{ t.vram }} GB</span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Tipo de memoria</span>
+          <span class="spec-valor">{{ t.tipoMemoria }}</span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Stock disponible</span>
+          <span class="spec-valor">{{ t.stock }} unidades</span>
+        </div>
+        <div class="spec">
+          <span class="spec-label">Precio</span>
+          <span class="spec-valor precio">{{ t.precio | currency:'CLP':'symbol-narrow':'1.0-0' }}</span>
+        </div>
+      </div>
+
+      <button class="btn-editar" (click)="editar()">Editar tarjeta</button>
+    </div>
+  </div>
+}
